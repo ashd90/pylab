@@ -1,287 +1,202 @@
 # Phase 01 — Python Basics
 
-> Covers the absolute building blocks of Python — how data is stored, named,
-> typed, manipulated, and displayed. Every concept is practiced through 8–10
-> exercises before moving to the project.
+> Building blocks of Python — data types, type system, strings, operators,
+> input/output, and built-in functions. 8–10 exercises per concept.
 
 ---
 
-## 1. Brief Theory
+## Concepts Covered
 
-### Variables
-
-A variable is a named label pointing to a value stored in memory. Python does
-not require you to declare a type — you simply assign a value and Python tracks
-the type internally. The label can be reassigned to any type at any time.
-
-Real-world analogy: RAM is a warehouse with millions of shelves. A variable is
-a sticky label you attach to one shelf. The label has a name, the shelf holds
-the value. You can peel the label off and stick it on a different shelf any time.
-
-### Core Data Types
-
-**int** — whole numbers of unlimited size. No overflow unlike C or Java.
-**float** — decimal numbers using IEEE 754 double precision (64-bit).
-**str** — immutable sequence of unicode characters. No char type in Python.
-**bool** — exactly two values: True or False (capital letters mandatory).
-**None** — represents the deliberate absence of a value. Not zero, not False.
-
-### Dynamic Typing
-
-Python determines the type of a variable from the value assigned, not from a
-declaration. Types are checked at runtime, not at compile time. This is called
-dynamic typing. The upside is fast prototyping. The downside is that type errors
-only surface when code actually runs — which is why we add type hints in Phase 07.
-
-### Type Casting
-
-Converting a value from one type to another explicitly using built-in functions:
-int(), float(), str(), bool(). Some conversions are safe (int to float), others
-can raise exceptions if the value is incompatible ("hello" cannot become an int).
-
-### Strings
-
-Strings are immutable sequences of unicode characters. Immutable means once
-created, the string object cannot be changed — operations like .upper() return
-a new string, they do not modify the original. Python 3 is unicode by default,
-meaning it handles every human language out of the box.
-
-### Operators
-
-Python operators follow standard mathematical precedence (PEMDAS). The // operator
-does floor division (discards decimal). The ** operator is exponentiation. The %
-operator returns the remainder (modulo). Comparison operators return bool values.
-Logical operators (and, or, not) use short-circuit evaluation.
-
-### Input and Output
-
-print() sends output to stdout. It accepts multiple arguments separated by commas,
-a sep parameter to control what goes between them, and an end parameter to control
-the line ending. input() reads from stdin and always returns a string — you must
-cast it explicitly if you need a number.
-
-### Built-in Functions
-
-Python ships with ~70 built-in functions available without any import. The most
-commonly used ones in this phase: len(), type(), range(), abs(), round(), min(),
-max(), sum(), sorted(), enumerate(), zip().
+    Concept 1 — Variables & Data Types
+    Concept 2 — Type System & Casting
+    Concept 3 — Strings          (upcoming)
+    Concept 4 — Operators        (upcoming)
+    Concept 5 — Input & Output   (upcoming)
+    Concept 6 — Built-in Functions (upcoming)
 
 ---
 
-## 2. Language Comparison
+## 1. Variables & Data Types
 
-### Integers
+A variable is a named label pointing to a value in memory. Python tracks the
+type internally — you never declare it. The label can be reassigned to any
+type at any time (dynamic typing).
 
-    Language   | Integer limit           | Overflow
-    -----------|-------------------------|------------------
-    C (int)    | -2^31 to 2^31 - 1      | Yes, wraps silently
-    Java (int) | -2^31 to 2^31 - 1      | Yes, wraps silently
-    JavaScript | -(2^53-1) to 2^53-1    | Loses precision
-    Python int | Unlimited               | Never
+**Five core types:**
 
-### Strings
+    int    → whole numbers, unlimited size, no overflow (unlike C/Java)
+    float  → decimal numbers, IEEE 754 double precision
+    str    → immutable sequence of unicode characters, no separate char type
+    bool   → exactly True or False (capital letters required)
+    None   → deliberate absence of a value — not 0, not False, not ""
 
-    Language    | String type     | Unicode default | Mutable
-    ------------|-----------------|-----------------|--------
-    C           | char[] array    | No              | Yes
-    Java        | String class    | Yes             | No
-    JavaScript  | string          | Yes             | No
-    Python 3    | str class       | Yes             | No
+**Dynamic typing:** type is determined at assignment, checked at runtime.
+Trade-off: fast prototyping, but type errors only surface when code runs.
 
-### Typing System
+**Language comparison:**
 
-    Language     | Typing   | Type errors caught
-    -------------|----------|----------------------
-    C / Java     | Static   | At compile time
-    JavaScript   | Dynamic  | At runtime
-    Python       | Dynamic  | At runtime
-    Python+mypy  | Optional | Before runtime via tooling
+    C/Java integers overflow at 2^31 - 1. Python integers never overflow.
+    JavaScript has null AND undefined. Python has only None.
+    Java/JS booleans are lowercase (true/false). Python capitalises (True/False).
+    C has no string type — just char arrays. Python str is a first-class object.
 
-### Boolean
+**Exercises:**
 
-    Language    | Bool values       | Case
-    ------------|-------------------|------------
-    C           | No bool, uses 0/1 | —
-    Java        | true / false      | lowercase
-    JavaScript  | true / false      | lowercase
-    Python      | True / False      | Capitalized
-
-### Null / None
-
-    Language    | Null value  | Common error
-    ------------|-------------|----------------------------------
-    Java        | null        | NullPointerException
-    JavaScript  | null / undefined (two different things)
-    C#          | null        | NullReferenceException
-    Python      | None        | AttributeError (clear message)
-
----
-
-## 3. Key Syntax
-
-    # Variable assignment
-    name = "Ashish"
-    age = 28
-    height = 5.9
-    is_active = True
-    result = None
-
-    # Checking type
-    type(name)           # <class 'str'>
-    isinstance(age, int) # True
-
-    # Type casting
-    int("42")            # 42
-    float("3.14")        # 3.14
-    str(100)             # "100"
-    bool(0)              # False
-    bool("hello")        # True
-
-    # String formatting (f-string — preferred)
-    print(f"Hello, {name}. You are {age} years old.")
-
-    # Operators
-    10 // 3              # 3  (floor division)
-    10 % 3               # 1  (remainder)
-    2 ** 8               # 256 (exponentiation)
-
-    # Input (always returns str)
-    age = int(input("Enter your age: "))
-
-    # Useful builtins
-    len("hello")         # 5
-    abs(-42)             # 42
-    round(3.7)           # 4
-    max(1, 5, 3)         # 5
-
----
-
-## 4. Exercises
-
-    ex01_variables.py        → declare all 5 types, print value + type
+    ex01_variables.py        → declare all 5 types, print value + type()
     ex02_dynamic_typing.py   → reassign one variable through all types
     ex03_none_vs_zero.py     → prove None != 0 != False != ""
-    ex04_big_numbers.py      → unlimited int size, underscore notation
-    ex05_type_casting.py     → safe and unsafe casting, handle ValueError
-    ex06_strings_basics.py   → indexing, slicing, immutability proof
-    ex07_string_methods.py   → upper, lower, strip, split, join, replace, find
-    ex08_fstrings.py         → f-string formatting, alignment, precision
-    ex09_operators.py        → all operator types, precedence, short-circuit
-    ex10_input_output.py     → input(), cast to int/float, formatted output
+    ex04_big_numbers.py      → unlimited int, underscore notation, 10**100
 
 ---
 
-## 5. Project — Tip Calculator & Bill Splitter
+## 2. Type System & Casting
+
+**type()** returns the exact type object of a value. Used for exact matching.
+
+**isinstance()** checks if a value belongs to a type or any of its parent types.
+Preferred in production because it respects inheritance.
+
+    type(True) == int        → False  (exact check — True is bool, not int)
+    isinstance(True, int)    → True   (bool is a subclass of int)
+
+**Implicit conversion:** Python silently promotes int → float when needed.
+Never loses data — always promotes to the more precise type.
+
+    10 + 3.5  → 13.5 (float)   Python promoted int to float automatically.
+
+**Explicit casting — valid conversions:**
+
+    int("42")              → 42
+    int(float("3.14"))     → 3      two-step: str→float→int
+    float("3.14")          → 3.14
+    str(100)               → "100"
+    bool(0)                → False
+    bool(" ")              → True   space is NOT empty — only "" is falsy
+
+**Falsy values — the complete list at this stage:**
+
+    0, 0.0, "", None
+
+**Everything else is truthy** — including " " (space), "0", -1, 0.1.
+
+**== vs is:**
+
+    ==   checks value equality   — do both sides hold the same value?
+    is   checks object identity  — do both sides point to the same object in memory?
+
+Use is only for None checks. Use == for everything else.
+
+    result is None      ✅ correct
+    result == None      ⚠️  works but PEP 8 violation
+
+**int() truncates, does not round:**
+
+    int(9.9)  → 9     (decimal dropped, not rounded)
+    int(9.1)  → 9
+
+**Language comparison:**
+
+    JavaScript  "5" + 3 → "53"   silent coercion, surprising result
+    Python      "5" + 3 → TypeError, forces you to be explicit
+    Java cast syntax: (int) 3.14   Python cast syntax: int(3.14)
+
+**Exercises:**
+
+    ex05_type_function.py       → type() on every data type, direct comparison
+    ex06_isinstance.py          → isinstance() vs type(), bool/int gotcha
+    ex07_implicit_conversion.py → int+float promotion, bool arithmetic
+    ex08_explicit_casting.py    → all valid casts, int() truncation behaviour
+    ex09_truthy_falsy.py        → map every falsy value, space vs empty string
+    ex10_identity_equality.py   → is vs ==, id(), CPython integer caching
+    ex11_casting_input.py       → cast live user input, use in calculation
+    ex12_type_in_fstrings.py    → format int/float/bool/None in f-strings
+    ex13_type_system_mixed.py   → combined practice, all concept 2 topics
+
+---
+
+## 3. Strings (upcoming)
+
+---
+
+## 4. Operators (upcoming)
+
+---
+
+## 5. Input & Output (upcoming)
+
+---
+
+## 6. Built-in Functions (upcoming)
+
+---
+
+## Project — Tip Calculator & Bill Splitter
 
 **File:** project/tip_calculator.py
 
-**What it does:**
-A CLI app that takes the bill amount, tip percentage, and number of people
-via input(). It calculates the tip amount, total bill, and per-person share.
-Displays a clean formatted breakdown. Handles invalid input gracefully.
+Takes bill amount, tip %, and number of people via input(). Calculates tip,
+total, and per-person share. Formatted output using f-strings.
 
-**Concepts applied:**
-input(), int(), float(), round(), f-strings, arithmetic operators, print()
-formatting with sep and alignment.
-
-**Sample run:**
-
-    Enter bill amount (₹): 1200
-    Enter tip percentage: 18
-    Enter number of people: 4
-
-    ----------------------------------------
-    Bill Amount   :  ₹ 1200.00
-    Tip (18%)     :  ₹  216.00
-    Total Bill    :  ₹ 1416.00
-    Per Person    :  ₹  354.00
-    ----------------------------------------
+Concepts applied: input(), float(), round(), f-strings, arithmetic operators.
 
 ---
 
-## 6. FAQ
+## FAQ
 
-Q: Why does 0.1 + 0.2 not equal 0.3 in Python?
-A: Floats are stored in binary (base-2). Just like 1/3 cannot be written exactly
-   in decimal (0.333...), 0.1 cannot be written exactly in binary. The result is
-   a tiny rounding error. Use round() for display, or the decimal module when
-   exact precision matters (e.g. financial calculations).
+**Q: Why does 0.1 + 0.2 not equal 0.3?**
+Floats are stored in binary. 0.1 has no exact binary representation — a tiny
+rounding error accumulates. Use round() for display. Use the decimal module
+for financial calculations that require exact precision.
 
-Q: Should I use single quotes or double quotes for strings?
-A: Python accepts both and they are identical. Pick one and be consistent.
-   The community convention (PEP 8) has no preference. Double quotes are common
-   because they allow apostrophes inside without escaping: "it's fine".
+**Q: bool(" ") — True or False?**
+True. Only "" (zero characters) is falsy. A space has one character — truthy.
 
-Q: Is True equal to 1 and False equal to 0?
-A: Yes. bool is a subclass of int in Python. True == 1 and False == 0 evaluate
-   to True. This means True + True == 2. It is rarely useful but good to know.
+**Q: int() vs round() — what is the difference?**
+int(9.9) → 9 (truncates, drops decimal). round(9.9) → 10 (rounds to nearest).
 
-Q: What happens if I call int() on a float string like "3.14"?
-A: It raises ValueError. You must go through float first: int(float("3.14")) → 3.
+**Q: When to use is vs ==?**
+Use is only for None: if x is None. Use == for all value comparisons.
 
-Q: Why does input() always return a string?
-A: Because Python cannot know in advance whether the user will type a number,
-   a name, or a sentence. It plays it safe and gives you the raw text. You decide
-   what to do with it.
+**Q: isinstance() vs type() — which to prefer?**
+isinstance() in almost all cases. It respects inheritance. type() is for the
+rare case you need an exact type match with no subclasses accepted.
 
 ---
 
-## 7. Real-World Production Q&A
+## Real-World Notes
 
-Q: Are Python's unlimited integers actually used in production?
-A: Yes. Cryptography libraries (like Python's cryptography package) use them
-   constantly. RSA encryption involves modular exponentiation with numbers that
-   are hundreds of digits long. This is impossible in C without special libraries.
-
-Q: When would a production codebase use None?
-A: Constantly. Functions that query a database return the result or None if not
-   found. Optional function parameters default to None. Config values that have
-   not been set yet are None. Checking `if result is None` is standard Python.
-
-Q: Why use f-strings over .format() or % formatting?
-A: f-strings (introduced in Python 3.6) are the fastest at runtime, the most
-   readable, and the least error-prone. .format() is used when the template is
-   stored separately from the values. % formatting is legacy — avoid it in new code.
-
-Q: Why does Python use duck typing instead of strict type enforcement?
-A: Python's philosophy (PEP 20) values practicality. If an object behaves like
-   a duck (has the methods you need), it is a duck — you do not need to verify
-   its class. This makes code more flexible and reusable. Type hints + mypy give
-   you safety when you need it, without making the language rigid by default.
+- Arbitrary precision int is used in cryptography (RSA key generation).
+- None is returned by database queries when no record is found.
+- f-strings are fastest at runtime — prefer over .format() and % formatting.
+- Type hints + mypy (Phase 07) give Python static-typing benefits optionally.
 
 ---
 
-## 8. Troubleshooting
+## Troubleshooting
 
-    ValueError: invalid literal for int() with base 10: 'hello'
-    → You passed a non-numeric string to int(). Wrap in try/except or validate first.
-
-    NameError: name 'x' is not defined
-    → You used a variable before assigning it. Check spelling and assignment order.
+    ValueError: invalid literal for int()
+    → Passed a non-numeric string. Go via float() first if it has a decimal.
 
     TypeError: can only concatenate str (not "int") to str
-    → You tried to join a string and a number with +. Use f-strings or str(number).
+    → Use f-string or wrap the number in str().
 
-    SyntaxError: invalid syntax on a print line
-    → Often a missing closing parenthesis or mismatched quotes from a line above.
-
-    IndentationError: unexpected indent
-    → Python uses indentation as syntax. Do not indent lines that are not inside
-      a block. Use 4 spaces consistently — never mix tabs and spaces.
+    NameError: name 'x' is not defined
+    → Variable used before assignment. Check spelling and order.
 
 ---
 
-## 9. Checkpoint
+## Checkpoint Questions
 
-Answer these before moving to Phase 02.
+    Concept 1:
+    [ ] What are the 5 core types and one key trait of each?
+    [ ] Why does Python never have integer overflow?
+    [ ] What is dynamic typing and what is the trade-off?
 
-    [ ] What are the 3 stages Python goes through to run a .py file?
-    [ ] What is the difference between int and float? When would you use each?
-    [ ] Why is None not the same as 0 or False?
-    [ ] What does dynamic typing mean? What is the trade-off vs static typing?
-    [ ] A user types "25" into input(). How do you use it as a number?
-    [ ] What does 17 // 5 return? What does 17 % 5 return?
-    [ ] Why are strings immutable? What does .upper() actually return?
-    [ ] What is short-circuit evaluation in and / or?
+    Concept 2:
+    [ ] isinstance() vs type() — difference and which to prefer?
+    [ ] What are all the falsy values covered so far?
+    [ ] int(9.9) → ? Does it round or truncate?
+    [ ] == checks ___ equality. is checks ___ equality.
+    [ ] Why does int("3.14") fail but int(float("3.14")) work?
 
 Phase 01 complete → Phase 02: Control Flow
