@@ -9,17 +9,17 @@
 ## 📌 About This Repository
 
 `pylab` is my personal Python learning lab. Every concept is studied in depth,
-practiced through **3–4 focused exercises**, and validated through a **real-world
+practiced through **8–10 focused exercises**, and validated through a **real-world
 mini-project** before moving on. No rushing. No skipping.
 
-| Property       | Detail                                         |
-|----------------|------------------------------------------------|
-| **Skill Level**    | Absolute Beginner → Advanced               |
-| **OS**             | CachyOS Linux (Arch-based)                 |
-| **IDE**            | VS Code / Neovim                           |
-| **Python Version** | 3.12+ (managed via `pyenv`)               |
-| **Reference**      | [roadmap.sh/python](https://roadmap.sh/python) |
-| **Methodology**    | Theory → Exercises (×3–4) → Project → Validate → Advance |
+| Property       | Detail                                                        |
+|----------------|---------------------------------------------------------------|
+| **Skill Level**    | Absolute Beginner → Advanced                              |
+| **OS**             | CachyOS Linux (Arch-based)                                |
+| **IDE**            | VS Code / Neovim                                          |
+| **Python Version** | 3.12+ (managed via pyenv)                                |
+| **Reference**      | roadmap.sh/python                                         |
+| **Methodology**    | Theory → Exercises (8–10) → Project → Validate → Advance |
 
 ---
 
@@ -43,6 +43,7 @@ mini-project** before moving on. No rushing. No skipping.
     ~/repoHive/pylab/
     │
     ├── README.md                        ← You are here — curriculum homepage
+    ├── .gitignore                       ← covers all .venv, __pycache__, logs
     │
     ├── 00-setup/
     │   ├── README.md                    ← Setup theory, steps, troubleshooting
@@ -50,73 +51,129 @@ mini-project** before moving on. No rushing. No skipping.
     │
     ├── 01-basics/
     │   ├── README.md                    ← Theory + FAQ + Production Q&A
-    │   ├── ex01_hello_world.py
-    │   ├── ex02_variables.py
-    │   ├── ex03_data_types.py
-    │   ├── ex04_type_casting.py
+    │   ├── .venv/                       ← gitignored, created locally
+    │   ├── ex01_variables.py
+    │   ├── ex02_dynamic_typing.py
+    │   ├── ex03_none_vs_zero.py
+    │   ├── ex04_big_numbers.py
+    │   ├── ex05_type_casting.py
+    │   ├── ex06_strings.py
+    │   ├── ex07_operators.py
+    │   ├── ex08_input_output.py
+    │   ├── ex09_builtins.py
+    │   ├── ex10_mixed_practice.py
     │   └── project/
     │       └── tip_calculator.py
     │
     ├── 02-control-flow/
     │   ├── README.md
+    │   ├── .venv/
     │   ├── ex01_if_else.py
-    │   ├── ex02_for_loops.py
-    │   ├── ex03_while_loops.py
-    │   ├── ex04_match_case.py
+    │   ├── ex02_nested_conditions.py
+    │   ├── ex03_match_case.py
+    │   ├── ex04_for_loops.py
+    │   ├── ex05_while_loops.py
+    │   ├── ex06_break_continue.py
+    │   ├── ex07_loop_else.py
+    │   ├── ex08_nested_loops.py
+    │   ├── ex09_ternary.py
+    │   ├── ex10_mixed_practice.py
     │   └── project/
     │       └── number_guessing_game.py
     │
     ├── 03-functions/
     │   ├── README.md
+    │   ├── .venv/
     │   ├── ex01_basic_functions.py
-    │   ├── ex02_args_kwargs.py
-    │   ├── ex03_recursion.py
-    │   ├── ex04_lambda_scope.py
+    │   ├── ex02_return_values.py
+    │   ├── ex03_default_args.py
+    │   ├── ex04_args_kwargs.py
+    │   ├── ex05_scope_legb.py
+    │   ├── ex06_lambda.py
+    │   ├── ex07_closures.py
+    │   ├── ex08_recursion.py
+    │   ├── ex09_higher_order.py
+    │   ├── ex10_mixed_practice.py
     │   └── project/
     │       └── unit_converter.py
     │
     ├── 04-data-structures/
     │   ├── README.md
-    │   ├── ex01_lists.py
-    │   ├── ex02_tuples_sets.py
-    │   ├── ex03_dictionaries.py
-    │   ├── ex04_comprehensions.py
+    │   ├── .venv/
+    │   ├── ex01_lists_basics.py
+    │   ├── ex02_lists_methods.py
+    │   ├── ex03_tuples.py
+    │   ├── ex04_sets.py
+    │   ├── ex05_dicts_basics.py
+    │   ├── ex06_dicts_methods.py
+    │   ├── ex07_list_comprehensions.py
+    │   ├── ex08_dict_set_comprehensions.py
+    │   ├── ex09_nested_structures.py
+    │   ├── ex10_mixed_practice.py
     │   └── project/
     │       └── student_grade_manager.py
     │
     ├── 05-oop/
     │   ├── README.md
+    │   ├── .venv/
     │   ├── ex01_classes_objects.py
-    │   ├── ex02_inheritance.py
-    │   ├── ex03_dunder_methods.py
-    │   ├── ex04_polymorphism.py
+    │   ├── ex02_instance_class_vars.py
+    │   ├── ex03_methods.py
+    │   ├── ex04_inheritance.py
+    │   ├── ex05_super.py
+    │   ├── ex06_dunder_methods.py
+    │   ├── ex07_property.py
+    │   ├── ex08_polymorphism.py
+    │   ├── ex09_abstract_classes.py
+    │   ├── ex10_mixed_practice.py
     │   └── project/
     │       └── bank_account_system.py
     │
     ├── 06-modules-packages/
     │   ├── README.md
+    │   ├── .venv/
     │   ├── ex01_stdlib_os_path.py
     │   ├── ex02_stdlib_datetime.py
-    │   ├── ex03_third_party_requests.py
-    │   ├── ex04_custom_package/
+    │   ├── ex03_stdlib_math_random.py
+    │   ├── ex04_json_csv.py
+    │   ├── ex05_regex_intro.py
+    │   ├── ex06_collections_module.py
+    │   ├── ex07_functools_module.py
+    │   ├── ex08_third_party_requests.py
+    │   ├── ex09_custom_package/
+    │   ├── ex10_mixed_practice.py
     │   └── project/
     │       └── file_organizer.py
     │
     ├── 07-advanced-python/
     │   ├── README.md
-    │   ├── ex01_decorators.py
-    │   ├── ex02_generators.py
-    │   ├── ex03_context_managers.py
-    │   ├── ex04_async_await.py
+    │   ├── .venv/
+    │   ├── ex01_decorators_basic.py
+    │   ├── ex02_decorators_advanced.py
+    │   ├── ex03_generators_basic.py
+    │   ├── ex04_generators_advanced.py
+    │   ├── ex05_context_managers.py
+    │   ├── ex06_functional_programming.py
+    │   ├── ex07_type_hints.py
+    │   ├── ex08_dataclasses.py
+    │   ├── ex09_async_await.py
+    │   ├── ex10_mixed_practice.py
     │   └── project/
     │       └── data_pipeline.py
     │
     ├── 08-testing-exceptions/
     │   ├── README.md
+    │   ├── .venv/
     │   ├── ex01_try_except.py
-    │   ├── ex02_custom_exceptions.py
-    │   ├── ex03_pytest_basics.py
-    │   ├── ex04_tdd_example.py
+    │   ├── ex02_exception_hierarchy.py
+    │   ├── ex03_custom_exceptions.py
+    │   ├── ex04_exception_chaining.py
+    │   ├── ex05_logging_basics.py
+    │   ├── ex06_logging_advanced.py
+    │   ├── ex07_pytest_basics.py
+    │   ├── ex08_pytest_fixtures.py
+    │   ├── ex09_pytest_mocking.py
+    │   ├── ex10_tdd_practice.py
     │   └── project/
     │       └── tested_calculator/
     │
@@ -131,16 +188,17 @@ mini-project** before moving on. No rushing. No skipping.
 
 ## 📚 Section README Layout
 
-Every phase folder contains a `README.md` with this consistent structure:
+Every phase folder contains a README.md with this consistent structure:
 
-    1. Brief Theory          → concept explained plainly, text-based
-    2. Key Syntax            → code patterns to memorize
-    3. Exercises             → 3–4 practice scripts with learning goals
-    4. Project               → real-world mini-project to apply knowledge
-    5. FAQ                   → common beginner confusions answered
-    6. Real-World Q&A        → production-level questions and answers
-    7. Troubleshooting       → common errors and their fixes
-    8. Checkpoint            → questions to validate mastery before advancing
+    1. Brief Theory       → concept explained plainly with real-world analogies
+    2. Language Compare   → how Python differs from C, Java, JavaScript on this topic
+    3. Key Syntax         → patterns to memorize with inline comments
+    4. Exercises          → 8–10 practice scripts, one concept at a time
+    5. Project            → real-world mini-project applying everything in the phase
+    6. FAQ                → common beginner confusions answered directly
+    7. Real-World Q&A     → production-level scenarios and answers
+    8. Troubleshooting    → common errors, causes, and fixes
+    9. Checkpoint         → questions to validate mastery before advancing
 
 ---
 
@@ -153,22 +211,22 @@ Install via AUR:
     yay -S vscodium-bin              # open-source build (recommended)
     yay -S visual-studio-code-bin    # official Microsoft build
 
-Essential extensions to install (`Ctrl+Shift+X`):
+Essential extensions (Ctrl+Shift+X):
 
-- `ms-python.python` — Python language support
-- `ms-python.pylance` — Type checking and IntelliSense
-- `ms-python.black-formatter` — Auto-formatting on save
-- `usernamehw.errorlens` — Inline error display
-- `eamodio.gitlens` — Git history and blame
+- ms-python.python        — Python language support
+- ms-python.pylance       — type checking and IntelliSense
+- ms-python.black-formatter — auto-format on save
+- usernamehw.errorlens    — inline error display
+- eamodio.gitlens         — git history and blame
 
 **Option 2 — PyCharm Community Edition (Free)**
 
     yay -S pycharm-community-edition
 
-**Option 3 — Neovim + LazyVim (Terminal native, blazing fast)**
+**Option 3 — Neovim + LazyVim (terminal native)**
 
     yay -S neovim
-    # Follow https://lazyvim.org then add pyright + ruff via Mason
+    # Follow lazyvim.org then add pyright + ruff via Mason
 
 ---
 
@@ -191,7 +249,8 @@ Essential extensions to install (`Ctrl+Shift+X`):
     git clone https://github.com/YOUR_USERNAME/pylab.git ~/repoHive/pylab
     cd ~/repoHive/pylab
 
-    # 5. Create a virtual environment per phase
+    # 5. Create a virtual environment per phase (example for Phase 01)
+    cd 01-basics
     python -m venv .venv
     source .venv/bin/activate
 
@@ -200,12 +259,12 @@ Essential extensions to install (`Ctrl+Shift+X`):
 ## 🔧 Git Workflow
 
     # Start a new exercise
-    git checkout -b phase-01/ex02-variables
+    git checkout -b phase-01/concept-1-variables
 
-    # After finishing
+    # After finishing all exercises in a concept
     git add .
-    git commit -m "feat(01-basics): ex02 variables and type casting complete"
-    git push origin phase-01/ex02-variables
+    git commit -m "feat(01-basics): concept 1 — variables and data types (8 exercises)"
+    git push origin phase-01/concept-1-variables
 
 **Commit message convention:**
 
@@ -217,31 +276,31 @@ Essential extensions to install (`Ctrl+Shift+X`):
 
 ---
 
-## 🧠 Learning Principles
+## 🧠 Learning Methodology
 
-1. **Theory before code** — understand the concept fully before writing a single line
-2. **3–4 exercises per concept** — repetition builds genuine muscle memory
-3. **No copy-paste** — type every exercise by hand to train fingers and brain together
-4. **Project to validate** — only start the section project when exercises feel natural
-5. **Git everything** — every exercise, even incomplete ones, gets committed
-6. **Checkpoint before advancing** — answer checkpoint questions before the next phase
+1. Theory first         — real-world analogy + language comparison before any code
+2. 8–10 exercises       — one per concept variation, typed by hand, never copy-pasted
+3. Review after push    — brief consolidation of what was learned before moving on
+4. Validate before next — checkpoint questions answered correctly before advancing
+5. Project at the end   — one real-world project per phase applying all concepts
+6. Git everything       — every exercise committed, progress fully tracked on GitHub
 
 ---
 
 ## 📈 Progress Tracker
 
-| Phase | Topic                   | Status         | Project                  |
-|-------|-------------------------|----------------|--------------------------|
-| 00    | Setup & Environment     | ⬜ Not Started | —                        |
-| 01    | Python Basics           | ⬜ Not Started | Tip Calculator           |
-| 02    | Control Flow            | ⬜ Not Started | Number Guessing Game     |
-| 03    | Functions               | ⬜ Not Started | Unit Converter           |
-| 04    | Data Structures         | ⬜ Not Started | Student Grade Manager    |
-| 05    | OOP                     | ⬜ Not Started | Bank Account System      |
-| 06    | Modules & Packages      | ⬜ Not Started | File Organizer           |
-| 07    | Advanced Python         | ⬜ Not Started | Async Data Pipeline      |
-| 08    | Testing & Exceptions    | ⬜ Not Started | Tested Calculator        |
-| 09    | Web & Data Capstone     | ⬜ Not Started | Personal Finance Tracker |
+| Phase | Topic                | Exercises | Status         | Project                  |
+|-------|----------------------|-----------|----------------|--------------------------|
+| 00    | Setup & Environment  | —         | ✅ Complete    | —                        |
+| 01    | Python Basics        | 8–10      | 🟡 In Progress | Tip Calculator           |
+| 02    | Control Flow         | 8–10      | ⬜ Not Started | Number Guessing Game     |
+| 03    | Functions            | 8–10      | ⬜ Not Started | Unit Converter           |
+| 04    | Data Structures      | 8–10      | ⬜ Not Started | Student Grade Manager    |
+| 05    | OOP                  | 8–10      | ⬜ Not Started | Bank Account System      |
+| 06    | Modules & Packages   | 8–10      | ⬜ Not Started | File Organizer           |
+| 07    | Advanced Python      | 8–10      | ⬜ Not Started | Async Data Pipeline      |
+| 08    | Testing & Exceptions | 8–10      | ⬜ Not Started | Tested Calculator        |
+| 09    | Web & Data Capstone  | 8–10      | ⬜ Not Started | Personal Finance Tracker |
 
 > Update ⬜ → 🟡 (In Progress) → ✅ (Complete) as you advance.
 
@@ -249,14 +308,14 @@ Essential extensions to install (`Ctrl+Shift+X`):
 
 ## 📖 Resources
 
-| Resource               | URL                                      |
-|------------------------|------------------------------------------|
-| Official Python Docs   | https://docs.python.org/3/               |
-| roadmap.sh/python      | https://roadmap.sh/python                |
-| Real Python            | https://realpython.com                   |
-| Python Cheatsheet      | https://www.pythoncheatsheet.org         |
-| Exercism Python Track  | https://exercism.org/tracks/python       |
-| PEP Index              | https://peps.python.org                  |
+| Resource              | URL                                |
+|-----------------------|------------------------------------|
+| Official Python Docs  | https://docs.python.org/3/         |
+| roadmap.sh/python     | https://roadmap.sh/python          |
+| Real Python           | https://realpython.com             |
+| Python Cheatsheet     | https://www.pythoncheatsheet.org   |
+| Exercism Python Track | https://exercism.org/tracks/python |
+| PEP Index             | https://peps.python.org            |
 
 ---
 
